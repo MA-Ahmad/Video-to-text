@@ -1,17 +1,13 @@
 require "google/cloud/speech"
 require "google/cloud/storage"
 
-# project_id = "google_cloud_project_id"
-# key_file   = "file_name.json"
-project_id = "clean-evening-261613"
-key_file   = "clean-evening-project-credentials.json"
+project_id = "google_cloud_project_id"
+key_file   = "file_name.json"
 
 
 # # Conver video to audio
-# system "ffmpeg -i video.mp4 video.flac"
-# system "ffmpeg -i video.flac -ac 1 video_flac.flac"
-system "ffmpeg -i video23.mp4 video_test.flac"
-system "ffmpeg -i video_test.flac -ac 1 video_test_flac.flac"
+system "ffmpeg -i video.mp4 video.flac"
+system "ffmpeg -i video.flac -ac 1 video_flac.flac"
 
 # # # # Upload audio to Google Storage
 storage = Google::Cloud::Storage.new project: project_id, keyfile: key_file
