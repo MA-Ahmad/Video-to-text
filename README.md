@@ -7,4 +7,4 @@
 * Goto Storage -> create bucket
 * Export permission in separate file
 * Write Code
-* Console: export GOOGLE_APPLICATION_CREDENTIALS='clean-evening-project-credentials.json'
+* Console: export GOOGLE_APPLICATION_CREDENTIALS='file_name.json'
