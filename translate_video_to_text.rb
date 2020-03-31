@@ -1,19 +1,20 @@
 require "google/cloud/speech"
 require "google/cloud/storage"
 
-# project_id = "hip-apricot-261512"
-# key_file   = "My_project_key.json"
+# project_id = "google_cloud_project_id"
+# key_file   = "file_name.json"
 project_id = "clean-evening-261613"
 key_file   = "clean-evening-project-credentials.json"
 
 
 # # Conver video to audio
+# system "ffmpeg -i video.mp4 video.flac"
+# system "ffmpeg -i video.flac -ac 1 video_flac.flac"
 system "ffmpeg -i video23.mp4 video_test.flac"
 system "ffmpeg -i video_test.flac -ac 1 video_test_flac.flac"
 
 # # # # Upload audio to Google Storage
 storage = Google::Cloud::Storage.new project: project_id, keyfile: key_file
-
 
 bucket_name = storage.buckets.first.name
 puts bucket_name
@@ -25,7 +26,6 @@ puts "Uploaded #{file.name}"
 # Translate audio to text
 speech = Google::Cloud::Speech.new
 storage_path = "gs://audio_bucket-1/video_cloud.flac"
-# storage_path = "gs://audio_bucket-1/video_Dec_20_2019_12_46_41_GMT-mono.flac"
 
 config = { encoding: :FLAC,
         language_code: "de-DE" }
