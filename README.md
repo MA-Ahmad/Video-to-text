@@ -1,10 +1,8 @@
 # Video-to-text
 * Create Account on Google Cloud Platform: https://console.cloud.google.com/
-* Create  a Project
+* Create a Project
 * Enable speech to text google API
-* Create Service Accounts
-* IAM & administration -> Add a permission
+* IAM -> Service Accounts -> Create Service Account -> Add unique name -> Set Role -> Create Key -> Download Json
 * Goto Storage -> create bucket
-* Export permission in separate file
 * Write Code
-* Console: export GOOGLE_APPLICATION_CREDENTIALS='file_name.json'
+* Run command from console: export GOOGLE_APPLICATION_CREDENTIALS='file_name.json'
