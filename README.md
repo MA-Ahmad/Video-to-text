@@ -6,3 +6,4 @@
 * Goto Storage -> create bucket
 * Write Code
 * Run command from console: export GOOGLE_APPLICATION_CREDENTIALS='file_name.json'
+* Run command: Ruby translate_video_to_text.rb
