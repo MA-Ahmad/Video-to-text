@@ -6,8 +6,8 @@ key_file   = "file_name.json"
 
 
 # # Conver video to audio
-system "ffmpeg -i video.mp4 video.flac"
-system "ffmpeg -i video.flac -ac 1 video_flac.flac"
+system "ffmpeg -i video.mp4 audio_temp.flac"
+system "ffmpeg -i adio_temp.flac -ac 1 audio_final.flac"
 
 # # # # Upload audio to Google Storage
 storage = Google::Cloud::Storage.new project: project_id, keyfile: key_file
@@ -15,13 +15,13 @@ storage = Google::Cloud::Storage.new project: project_id, keyfile: key_file
 bucket_name = storage.buckets.first.name
 puts bucket_name
 bucket  = storage.bucket bucket_name
-local_file_path = '/Users/mac/Downloads/video_test_flac.flac'
-file = bucket.create_file local_file_path, 'video_cloud.flac'
+local_file_path = '/Users/mac/Downloads/audio_final.flac'
+file = bucket.create_file local_file_path, 'audio_cloud.flac'
 puts "Uploaded #{file.name}"
 
 # Translate audio to text
 speech = Google::Cloud::Speech.new
-storage_path = "gs://audio_bucket-1/video_cloud.flac"
+storage_path = "gs://audio_bucket-1/audio_cloud.flac"
 
 config = { encoding: :FLAC,
         language_code: "de-DE" }
